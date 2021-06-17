@@ -6,8 +6,10 @@ import LoadingBar from 'react-redux-loading'
 import Dashboard from './Dashboard'
 import Login from './Login'
 import Error from './Error'
+import Leaderboards from './Leaderboards'
 import NavBar from './NavBar'
 import CreatePoll from './CreatePoll'
+import User from './User'
 
 class App extends Component {
   componentDidMount(){
@@ -15,9 +17,9 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props
-    if (authedUser === '') {
-      return <Login />
-    }
+    // if (authedUser === '') {
+    //   return <Login />
+    // }
 
     return (
       <Router>
@@ -28,7 +30,7 @@ class App extends Component {
             ? null
             : <div>
                 <Switch>
-                  <Route path ='/' exact component={Dashboard}/>
+                  <Route path ='/' exact component={Leaderboards}/>
                   <Route path ='/add' component={CreatePoll}/>     
                   <Route path ='*' exact component ={Error}/>
                 </Switch>      
