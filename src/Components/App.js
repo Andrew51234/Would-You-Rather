@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { handleInitialData } from '../Actions/shared'
+import LoadingBar from 'react-redux-loading'
+import Dashboard from './Dashboard'
+import Login from './Login'
+import Error from './Error'
+import NavBar from './NavBar'
+import CreatePoll from './CreatePoll'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount(){
+    this.props.dispatch(handleInitialData())
+  }
+  render() {
+    const { authedUser } = this.props
+    if (authedUser === '') {
+      return <Login />
+    }
+
+    return (
+      <Router>
+        <Fragment>
+        <LoadingBar />
+          <div>        
+          {this.props.loading === true
+            ? null
+            : <div>
+                <Switch>
+                  <Route path ='/' exact component={Dashboard}/>
+                  <Route path ='/add' component={CreatePoll}/>     
+                  <Route path ='*' exact component ={Error}/>
+                </Switch>      
+            </div>
+            }
+        </div>
+      </Fragment>    
+      </Router>
+    )
+  }
 }
 
-export default App;
+function mapStateToProps ({ authedUser }) {
+  return {
+    authedUser,
+    loading: authedUser === null
+  }
+}
+
+export default connect(mapStateToProps)(App)

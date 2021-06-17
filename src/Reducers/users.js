@@ -25,6 +25,8 @@ export default function users(state = {}, action) {
                         [action.qid]: action.answer
                     }
                 }
-            }        
+            }
+        default: 
+            return state        
     }
 }

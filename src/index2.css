@@ -1,0 +1,260 @@
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    color: #252525;
+}
+
+a {
+    text-decoration: none;
+    color: #252525;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.btn {
+    text-transform: uppercase;
+    margin: 35px auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.29);
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 250px;
+    position: relative;
+}
+
+.btn-opt1 {
+    text-transform: uppercase;
+    margin: 35px auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.29);
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 250px;
+    position: relative;
+}
+
+.btn-opt1:hover {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(64, 224, 208, 1) 50%, rgba(0, 0, 0, 1) 80%);
+}
+
+.btn-opt2 {
+    text-transform: uppercase;
+    margin: 35px auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.29);
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 250px;
+    position: relative;
+}
+
+.btn-opt2:hover {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(66, 129, 251, 1) 50%, rgba(0, 0, 0, 1) 80%);
+}
+
+.btn1 {
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 250px;
+    position: relative;
+    margin-left: 38%;
+    justify-content: center;
+}
+
+.btnHolder {
+    margin-block-start: 10px;
+}
+
+.btn:hover {
+    border-color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: 0;
+    font-weight: 700;
+    border-width: 2px;
+}
+
+.center {
+    text-align: center;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.navItem:hover {
+    background-color: #570e66;
+    color: black;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav li:first-child {
+    padding-left: 0;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.avatar {
+    height: 250px;
+    width: 250px;
+    border: 10px solid #570e66;
+}
+
+.wyr {
+    width: 100%;
+    max-width: 590px;
+    max-height: 270px;
+    display: flex;
+    margin: 0 auto;
+    border: 5px solid #570e66;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.wyr-info {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wyr-data {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #c278d1;
+    border-radius: 10px;
+    width: 200px;
+}
+
+/* Hacky but less typing in the video */
+.wyr-info>div>span:first-child {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.wyr-info>div>span:nth-child(2) {
+    color: #969696;
+    font-size: 16px;
+}
+
+.wyr-info>div>div {
+    color: #969696;
+    font-size: 15px;
+}
+
+.wyr-info>div>p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.wyr-icons {
+    display: flex;
+    align-items: center;
+}
+
+.wyr-icons>span {
+    color: #969696;
+    margin: 0 15px 0 5px;
+    font-size: 18px !important;
+}
+
+.wyr-icon {
+    font-size: 27px;
+    color: #697784;
+}
+
+.wyr-icon:hover {
+    color: #00b5d6;
+    cursor: pointer;
+}
+
+.replying-to {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    color: #969696;
+    cursor: pointer;
+}
+
+.heart-button {
+    background: transparent;
+    border: none;
+}
+
+.new-wyr {
+    width: 100%;
+    max-width: 590px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    border-radius: 4px;
+    border: 2px solid #570e66;
+    padding: 10px;
+    font-size: 15px;
+    height: 30px;
+}
+
+.wyr-length {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #c3392a;
+}
+
+.login {
+    align-self: center;
+}
