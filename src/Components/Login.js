@@ -43,7 +43,7 @@ class Login extends Component {
                <ul >
                  {users.map((user) => (
                    <li key={user}>
-                   <button className="btn" onClick={() => this.handleClick(user)}>
+                   <button className="btn-users" onClick={() => this.handleClick(user)}>
                  {user}
                 </button></li>
                  ))}

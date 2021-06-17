@@ -55,6 +55,41 @@ body {
     position: relative;
 }
 
+.btn-users {
+    margin: 2px auto;
+    padding: 10px;
+    border: 3px solid #BD00FF;
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 200px;
+    position: relative;
+}
+
+.btn-users:focus {
+    outline: 0;
+    font-weight: 700;
+    border-width: 4px;
+}
+
+.btn-users:hover {
+    border-color: rgba(0, 0, 0, .5);
+    text-decoration: none;
+    background-color: #BD00FF;
+}
+
+.btn:hover {
+    border-color: rgba(0, 0, 0, .5);
+    text-decoration: none;
+    background-color: #BD00FF;
+}
+
+.btn:focus {
+    outline: 0;
+    font-weight: 700;
+    border-width: 4px;
+}
+
 .avatar {
     height: 150px;
     border-radius: 25px;
@@ -96,3 +131,11 @@ li {
    border-radius: 3px;
    cursor: pointer;
 }
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+

@@ -9,7 +9,6 @@ import Error from './Error'
 import Leaderboards from './Leaderboards'
 import NavBar from './NavBar'
 import CreatePoll from './CreatePoll'
-import User from './User'
 
 class App extends Component {
   componentDidMount(){
@@ -17,21 +16,24 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props
-    // if (authedUser === '') {
-    //   return <Login />
-    // }
+     if (authedUser === '') {
+       return <Login />
+     }
 
     return (
       <Router>
         <Fragment>
         <LoadingBar />
+        <NavBar authedUser = {authedUser}/>
           <div>        
           {this.props.loading === true
             ? null
             : <div>
                 <Switch>
                   <Route path ='/' exact component={Leaderboards}/>
-                  <Route path ='/add' component={CreatePoll}/>     
+                  <Route path ='/leaderboards' component={Leaderboards}/>  
+                  <Route path ='/add' component={CreatePoll}/> 
+                  <Route path ='/login' component={Login}/>      
                   <Route path ='*' exact component ={Error}/>
                 </Switch>      
             </div>
