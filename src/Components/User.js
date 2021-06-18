@@ -5,7 +5,7 @@ class User extends Component {
         const { name, image, numQs, numAs } = this.props
         return (
             <div className ="wyr center container">
-            <img className="avatar" src={image} alt={`Image of ${name}`} />
+            <img className="avatar" src={image} alt={`Avatar of ${name}`} />
             <div className=" lb-container center">
             <h1>{name}</h1>
             <h3>

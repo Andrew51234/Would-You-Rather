@@ -27,7 +27,7 @@ class PollPage extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { dispatch, question, answer } = this.props
+        const { dispatch, question } = this.props
         const { response } = this.state
 
         dispatch(handleAddAnswer(question.id, response))
@@ -39,18 +39,19 @@ class PollPage extends Component {
 
     render() {
 
+         const { question, answer } = this.props
+
         if (!question || question === null) {
             return (
             <Error/>
             )
         }
 
-        const { question, answer, id } = this.props
+       
 
         const {
                 optionOne,
                 optionTwo,
-                timestamp,
                 name,
                 avatar,
               } = question

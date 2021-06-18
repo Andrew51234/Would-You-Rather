@@ -65,6 +65,7 @@ class Dashboard extends Component {
 }
 
 function mapStateToProps({ questions, authedUser }) {
+    // eslint-disable-next-line
   let yesQ = Object.keys(questions).filter((q) => {
       let q1 = questions[q].optionOne.votes
       let q2 = questions[q].optionTwo.votes
@@ -73,6 +74,7 @@ function mapStateToProps({ questions, authedUser }) {
     }
   })
 
+    // eslint-disable-next-line
   let noQ = Object.keys(questions).filter((q) => {
     let q1 = questions[q].optionOne.votes
     let q2 = questions[q].optionTwo.votes

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Menu } from 'antd'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../Actions/authedUser'
 import { Redirect } from 'react-router-dom'

@@ -16,10 +16,8 @@ class Poll extends Component {
         const { id,
                 optionOne,
                 optionTwo,
-                timestamp,
                 name,
                 avatar,
-                hasVoted
               } = question
 
         return (
