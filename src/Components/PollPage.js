@@ -29,7 +29,7 @@ class PollPage extends Component {
 
         const { dispatch, question } = this.props
         const { response } = this.state
-
+        
         dispatch(handleAddAnswer(question.id, response))
 
         this.setState(() => ({
@@ -39,22 +39,20 @@ class PollPage extends Component {
 
     render() {
 
-         const { question, answer } = this.props
-
-        if (!question || question === null) {
+        const { question, answer } = this.props
+         
+        if (question === null) {
             return (
             <Error/>
             )
         }
 
-       
-
         const {
-                optionOne,
-                optionTwo,
-                name,
-                avatar,
-              } = question
+            name,
+            avatar,
+            optionOne,
+            optionTwo,
+        } = question
         
         const { response } = this.state
      
@@ -75,7 +73,7 @@ class PollPage extends Component {
                 </div>
                 {
                     !answer ? (
-                        <div className ="center container wyr">
+                        <div className ="center container">
                             <button className="btn-users" onClick={(e) => this.handleClickOne(e)}>
                                 {optionOne.text}
                             </button>
@@ -95,6 +93,8 @@ class PollPage extends Component {
                                <h3 className="active bold" > Your Answer is {optionOne.text}</h3>
                                <div>{optionOne.votes.length} chose this answer</div>
                                <div>{(optionOne.votes.length)/(optionOne.votes.length + optionTwo.votes.length) *100}% of players chose this answer</div> 
+                               <div>{optionTwo.votes.length} chose the other answer</div>
+                               <div>{(optionTwo.votes.length)/(optionOne.votes.length + optionTwo.votes.length) *100}% of players chose this answer</div> 
                                </div>
                            )}
                            {answer === "optionTwo" && (
@@ -102,6 +102,8 @@ class PollPage extends Component {
                                <h3 className="active bold" > Your Answer is {optionTwo.text}</h3>
                                <div>{optionTwo.votes.length} chose this answer</div>
                                <div>{(optionTwo.votes.length)/(optionOne.votes.length + optionTwo.votes.length) *100}% of players chose this answer</div> 
+                               <div>{optionOne.votes.length} chose the other answer</div>
+                               <div>{(optionOne.votes.length)/(optionOne.votes.length + optionTwo.votes.length) *100}% of players chose this answer</div> 
                                </div>
                            )}
                         </div>

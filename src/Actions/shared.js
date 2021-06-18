@@ -36,16 +36,17 @@ export function handleAddQuestion (optOne, optTwo) {
     }
 }
 
-export function handleAddAnswer (qid, answer) {
+export function handleAddAnswer (qid, choice) {
     return (dispatch, getState) => {
-        const authedUser = getState()
-        const choice = answer
-        dispatch(showLoading())
-        return saveQuestionAnswer({authedUser, qid, choice})
-        .then(() => {
-            dispatch(answerQuestion({qid, authedUser, choice}))
-            dispatch(addUserAnswer(authedUser, qid, choice))
-        })
-        .then(() => dispatch(hideLoading()))
-    }
+    const { authedUser } = getState()
+
+    dispatch(showLoading())
+
+    return saveQuestionAnswer({ authedUser, qid, answer: choice })
+      .then(() => {
+        dispatch(answerQuestion({ qid, authedUser, answer: choice }))
+        dispatch(addUserAnswer(authedUser, qid, choice))
+      })
+      .then(() => dispatch(hideLoading()))
+  }
 }
