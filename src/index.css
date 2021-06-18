@@ -132,6 +132,13 @@ li {
    cursor: pointer;
 }
 
+.wyr-info {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .nav ul {
     display: flex;
     flex-direction: row;

@@ -1,12 +1,7 @@
-@font-face {
-    font-family: Roboto;
-    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-}
-
 body {
     margin: 0;
     padding: 0;
-    font-family: Roboto;
+    font-family: sans-serif;
     color: #252525;
 }
 
@@ -25,64 +20,16 @@ a {
     text-transform: uppercase;
     margin: 35px auto;
     padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.29);
+    border: 1px solid rgba(0, 0, 0, .29);
     cursor: pointer;
     background: #fff;
     font-size: 16px;
     width: 250px;
     position: relative;
-}
-
-.btn-opt1 {
-    text-transform: uppercase;
-    margin: 35px auto;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.29);
-    cursor: pointer;
-    background: #fff;
-    font-size: 16px;
-    width: 250px;
-    position: relative;
-}
-
-.btn-opt1:hover {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(64, 224, 208, 1) 50%, rgba(0, 0, 0, 1) 80%);
-}
-
-.btn-opt2 {
-    text-transform: uppercase;
-    margin: 35px auto;
-    padding: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.29);
-    cursor: pointer;
-    background: #fff;
-    font-size: 16px;
-    width: 250px;
-    position: relative;
-}
-
-.btn-opt2:hover {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(66, 129, 251, 1) 50%, rgba(0, 0, 0, 1) 80%);
-}
-
-.btn1 {
-    cursor: pointer;
-    background: #fff;
-    font-size: 16px;
-    width: 250px;
-    position: relative;
-    margin-left: 38%;
-    justify-content: center;
-}
-
-.btnHolder {
-    margin-block-start: 10px;
 }
 
 .btn:hover {
-    border-color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, .5);
     text-decoration: none;
 }
 
@@ -105,25 +52,6 @@ a {
     flex-direction: row;
     justify-content: flex-start;
     text-decoration: none;
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.footer ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    text-decoration: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.navItem:hover {
-    background-color: #570e66;
-    color: black;
-    border-radius: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .nav li:first-child {
@@ -141,79 +69,66 @@ li {
 }
 
 .avatar {
-    height: 250px;
-    width: 250px;
-    border: 10px solid #570e66;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px;
 }
 
-.wyr {
+.tweet {
     width: 100%;
     max-width: 590px;
-    max-height: 270px;
+    padding: 10px;
     display: flex;
     margin: 0 auto;
-    border: 5px solid #570e66;
-    border-radius: 20px;
+    border: 1px solid #dad7d7;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.wyr-info {
+.tweet-info {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.wyr-data {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    text-align: center;
-    vertical-align: middle;
-    background-color: #c278d1;
-    border-radius: 10px;
-    width: 200px;
 }
 
 /* Hacky but less typing in the video */
-.wyr-info>div>span:first-child {
+.tweet-info>div>span:first-child {
     font-weight: bold;
     margin-right: 5px;
 }
 
-.wyr-info>div>span:nth-child(2) {
+.tweet-info>div>span:nth-child(2) {
     color: #969696;
     font-size: 16px;
 }
 
-.wyr-info>div>div {
+.tweet-info>div>div {
     color: #969696;
     font-size: 15px;
 }
 
-.wyr-info>div>p {
+.tweet-info>div>p {
     font-size: 18px;
     margin: 10px 0;
 }
 
-.wyr-icons {
+.tweet-icons {
     display: flex;
     align-items: center;
 }
 
-.wyr-icons>span {
+.tweet-icons>span {
     color: #969696;
     margin: 0 15px 0 5px;
     font-size: 18px !important;
 }
 
-.wyr-icon {
+.tweet-icon {
     font-size: 27px;
     color: #697784;
 }
 
-.wyr-icon:hover {
+.tweet-icon:hover {
     color: #00b5d6;
     cursor: pointer;
 }
@@ -232,7 +147,7 @@ li {
     border: none;
 }
 
-.new-wyr {
+.new-tweet {
     width: 100%;
     max-width: 590px;
     margin: 0 auto;
@@ -242,19 +157,15 @@ li {
 
 .textarea {
     border-radius: 4px;
-    border: 2px solid #570e66;
+    border: 1px solid #dad7d7;
     padding: 10px;
     font-size: 15px;
-    height: 30px;
+    height: 100px;
 }
 
-.wyr-length {
+.tweet-length {
     text-align: right;
     margin-top: 10px;
     font-size: 20px;
-    color: #c3392a;
-}
-
-.login {
-    align-self: center;
+    color: #C3392A;
 }

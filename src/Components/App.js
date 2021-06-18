@@ -9,6 +9,7 @@ import Error from './Error'
 import Leaderboards from './Leaderboards'
 import NavBar from './NavBar'
 import CreatePoll from './CreatePoll'
+import PollCard from './Poll'
 
 class App extends Component {
   componentDidMount(){
@@ -16,9 +17,9 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props
-     if (authedUser === '') {
-       return <Login />
-     }
+    //  if (authedUser === '') {
+    //    return <Login />
+    //  }
 
     return (
       <Router>
@@ -30,7 +31,7 @@ class App extends Component {
             ? null
             : <div>
                 <Switch>
-                  <Route path ='/' exact component={Leaderboards}/>
+                  <Route path ='/' exact component={PollCard}/>
                   <Route path ='/leaderboards' component={Leaderboards}/>  
                   <Route path ='/add' component={CreatePoll}/> 
                   <Route path ='/login' component={Login}/>      
