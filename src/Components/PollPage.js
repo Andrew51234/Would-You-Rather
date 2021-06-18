@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from '../Utils/helpers'
 import { handleAddAnswer } from '../Actions/shared'
+import Error from './Error'
 
 class PollPage extends Component {
 
@@ -38,6 +39,12 @@ class PollPage extends Component {
 
     render() {
 
+        if (!question || question === null) {
+            return (
+            <Error/>
+            )
+        }
+
         const { question, answer, id } = this.props
 
         const {
@@ -48,9 +55,8 @@ class PollPage extends Component {
                 avatar,
               } = question
         
-        const { response } = this.state      
-        
-        
+        const { response } = this.state
+     
         return (
             <div className="wyr container">
                 <img className='avatar' src={avatar} alt ={`Avatar of ${name}`}/>

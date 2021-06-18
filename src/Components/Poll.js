@@ -26,7 +26,7 @@ class Poll extends Component {
             <Link to ={`/questions/${id}`} className="wyr container">
                 <img className='avatar' src={avatar} alt ={`Avatar of ${name}`}/>
                 <div className='wyr-info'>
-                    <h2 classname="center">{name} asked Would you Rather</h2>
+                    <h2 className="center">{name} asked Would you Rather</h2>
                     <div className='bold center'>
                         {optionOne.text}
                     </div>

@@ -1,22 +1,16 @@
 import { NavLink } from "react-router-dom"
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { setAuthedUser } from "../Actions/authedUser"
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
-  // state = {
-  //   authedUser: this.props.authedUser
-  // }
+   handleLogout = (e) => {
+     e.preventDefault()
 
-  // handleLogout = (e) => {
-  //   e.preventDefault()
-
-  //   const { dispatch } = this.props
-  //   const { authedUser } = this.state
-
-  //   this.setState(() => ({
-  //        authedUser: ''
-  //       }))
-  // }
+     const { dispatch } = this.props
+     dispatch(setAuthedUser(''))
+   }
 
   render() {
     return (
@@ -50,3 +44,5 @@ export default class NavBar extends Component {
     )
   }
 }
+
+export default connect()(NavBar)

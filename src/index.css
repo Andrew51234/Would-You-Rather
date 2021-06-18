@@ -78,6 +78,30 @@ body {
     background-color: #BD00FF;
 }
 
+.btn-db {
+    margin: 2px auto;
+    padding: 10px;
+    border: 3px solid #BD00FF;
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 200px;
+    position: relative;
+}
+
+.btn-db:focus {
+    outline: 0;
+    font-weight: 700;
+    border-width: 7px;
+}
+
+.btn-db:hover {
+    border-color: rgba(0, 0, 0, .5);
+    text-decoration: none;
+    background-color: #BD00FF;
+}
+
+
 .btn:hover {
     border-color: rgba(0, 0, 0, .5);
     text-decoration: none;

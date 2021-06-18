@@ -17,9 +17,9 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props
-    //  if (authedUser === '') {
-    //    return <Login />
-    //  }
+      // if (authedUser === '') {
+      //   return <Login />
+      // }
 
     return (
       <Router>
