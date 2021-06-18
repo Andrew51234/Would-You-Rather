@@ -1,36 +1,38 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { formatQuestion } from '../Utils/helpers'
+import { handleAddAnswer } from '../Actions/shared'
 
 class PollPage extends Component {
 
     state = {
-        answer: ""
+        response: ""
     }
 
     handleClickOne = (e) => {
         e.preventDefault()
-        this.setState(() = ({
-            answer: 'optionOne'
+        this.setState(() => ({
+            response: 'optionOne'
         }))
     }
 
     handleClickTwo = (e) => {
         e.preventDefault()
-        this.setState(() = ({
-            answer: 'optionTwo'
+        this.setState(() => ({
+            response: 'optionTwo'
         }))
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const { dispatch, question } = this.props
-        const { answer } = this.state
+        const { dispatch, question, answer } = this.props
+        const { response } = this.state
 
-        dispatch(handleQuestionAnswer(question.id, answer))
+        dispatch(handleAddAnswer(question.id, response))
 
         this.setState(() => ({
-            answer: ""
+            response: ""
         }))
     }
 
@@ -38,7 +40,7 @@ class PollPage extends Component {
 
         const { question, answer, id } = this.props
 
-        const { id,
+        const {
                 optionOne,
                 optionTwo,
                 timestamp,
@@ -46,7 +48,7 @@ class PollPage extends Component {
                 avatar,
               } = question
         
-        const { answer } = this.state      
+        const { response } = this.state      
         
         
         return (
@@ -75,7 +77,7 @@ class PollPage extends Component {
                                 {optionTwo.text}
                             </button>
 
-                            <button className="btn" onClick={(e) => this.handleSubmit(e)} disabled={answer===""}>
+                            <button className="btn" onClick={(e) => this.handleSubmit(e)} disabled={response===""}>
                                 Submit Answer
                             </button>
                         </div>
@@ -108,7 +110,6 @@ function mapStateToProps({authedUser, questions, users}, props) {
     const answer = users[authedUser].answers[id]
 
     return {
-        id,
         authedUser,
         question: question ? formatQuestion(question, users[question.author], authedUser)
         : null,
@@ -116,4 +117,4 @@ function mapStateToProps({authedUser, questions, users}, props) {
     }
 }
 
-export default connect (mapStateToProps)(PollPage)
+export default connect(mapStateToProps)(PollPage)

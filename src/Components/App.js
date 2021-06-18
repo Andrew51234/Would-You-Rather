@@ -9,7 +9,7 @@ import Error from './Error'
 import Leaderboards from './Leaderboards'
 import NavBar from './NavBar'
 import CreatePoll from './CreatePoll'
-import PollCard from './Poll'
+import PollPage from './PollPage'
 
 class App extends Component {
   componentDidMount(){
@@ -31,10 +31,11 @@ class App extends Component {
             ? null
             : <div>
                 <Switch>
-                  <Route path ='/' exact component={PollCard}/>
-                  <Route path ='/leaderboards' component={Leaderboards}/>  
+                  <Route path ='/' exact component={Dashboard}/>
+                  <Route path ='/login' component={Login}/>  
                   <Route path ='/add' component={CreatePoll}/> 
-                  <Route path ='/login' component={Login}/>      
+                  <Route path ='/leaderboards' component={Leaderboards}/>  
+                  <Route path ='questions/:id' component={PollPage}/>
                   <Route path ='*' exact component ={Error}/>
                 </Switch>      
             </div>
