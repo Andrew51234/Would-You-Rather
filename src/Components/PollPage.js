@@ -7,7 +7,8 @@ import Error from './Error'
 class PollPage extends Component {
 
     state = {
-        response: ""
+        response: "",
+        done: this.props.answered
     }
 
     handleClickOne = (e) => {
@@ -24,23 +25,23 @@ class PollPage extends Component {
         }))
     }
 
-    handleSubmit = (e) => {
+    handleSubmit(e){
         e.preventDefault()
 
-        const { dispatch, question } = this.props
-        const { response } = this.state
         
+        const { response } = this.state
+        const { dispatch, question } = this.props
+                
         dispatch(handleAddAnswer(question.id, response))
 
         this.setState(() => ({
-            response: ""
+            done : true
         }))
     }
 
     render() {
 
-        const { question, answer } = this.props
-         
+        const { question, answer, hasAnswerOne, hasAnswerTwo } = this.props
         if (question === null) {
             return (
             <Error/>
@@ -54,7 +55,7 @@ class PollPage extends Component {
             optionTwo,
         } = question
         
-        const { response } = this.state
+        const { response, done } = this.state
      
         return (
             <div className="wyr container">
@@ -71,8 +72,8 @@ class PollPage extends Component {
                         {optionTwo.text}
                     </div>
                 </div>
-                {
-                    !answer ? (
+                
+                   { !done && (
                         <div className ="center container">
                             <button className="btn-users" onClick={(e) => this.handleClickOne(e)}>
                                 {optionOne.text}
@@ -86,9 +87,9 @@ class PollPage extends Component {
                                 Submit Answer
                             </button>
                         </div>
-                    )
-                    :   <div className ="center container wyr" style={{border: "3px solid purple"}}>
-                           {answer === "optionOne" && (
+                    )}
+                    {done &&  ( <div className ="center container wyr" style={{border: "3px solid purple"}}>
+                           {(hasAnswerOne || response === "optionOne") && (
                                <div>
                                <h3 className="active bold" > Your Answer is {optionOne.text}</h3>
                                <div>{optionOne.votes.length} chose this answer</div>
@@ -97,7 +98,7 @@ class PollPage extends Component {
                                <div>{(optionTwo.votes.length)/(optionOne.votes.length + optionTwo.votes.length) *100}% of players chose this answer</div> 
                                </div>
                            )}
-                           {answer === "optionTwo" && (
+                           {(hasAnswerTwo || response === "optionTwo") && (
                                <div>
                                <h3 className="active bold" > Your Answer is {optionTwo.text}</h3>
                                <div>{optionTwo.votes.length} chose this answer</div>
@@ -107,6 +108,7 @@ class PollPage extends Component {
                                </div>
                            )}
                         </div>
+                    )
                 }            
             </div>
         )
@@ -116,13 +118,20 @@ class PollPage extends Component {
 function mapStateToProps({authedUser, questions, users}, props) {
     const { id } = props.match.params
     const question = questions[id]
-    const answer = users[authedUser].answers[id]
+    const keys = Object.keys(users[authedUser].answers)
+    const answer = users[authedUser].answers
+    const hasAnswerOne = questions[id].optionOne.votes.includes(authedUser)
+    const hasAnswerTwo = questions[id].optionTwo.votes.includes(authedUser) 
 
     return {
         authedUser,
         question: question ? formatQuestion(question, users[question.author], authedUser)
         : null,
-        answer
+        answer,
+        answered: keys.includes(id),
+        hasAnswerOne,
+        hasAnswerTwo
+
     }
 }
 

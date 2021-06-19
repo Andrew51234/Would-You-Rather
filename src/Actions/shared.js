@@ -1,4 +1,4 @@
-import { getInitialData, saveQuestion, saveQuestionAnswer} from '../Utils/api'
+import { getInitialData, saveQuestion, saveQuestionAnswer, getUsers} from '../Utils/api'
 import { receiveQuestions, addQuestion, answerQuestion } from './questions'
 import { receiveUsers, addUserQuestion, addUserAnswer } from './users'
 import { setAuthedUser } from './authedUser'
@@ -36,17 +36,19 @@ export function handleAddQuestion (optOne, optTwo) {
     }
 }
 
-export function handleAddAnswer (qid, choice) {
-    return (dispatch, getState) => {
+export function handleAddAnswer (qid, answer) {
+  return (dispatch, getState) => {
     const { authedUser } = getState()
 
     dispatch(showLoading())
-
-    return saveQuestionAnswer({ authedUser, qid, answer: choice })
+    getUsers().then((users) => {
+    return saveQuestionAnswer({ authedUser, qid, answer })
       .then(() => {
-        dispatch(answerQuestion({ qid, authedUser, answer: choice }))
-        dispatch(addUserAnswer(authedUser, qid, choice))
+        dispatch(answerQuestion({ qid, authedUser: users[authedUser].id, answer }))
+        dispatch(addUserAnswer({authedUser, qid, answer}))
       })
       .then(() => dispatch(hideLoading()))
+    })
+    
   }
 }

@@ -16,11 +16,12 @@ export function addQuestion (question) {
     }
 }
 
-export function answerQuestion ({authedUser, qid, answer}) {
-    return {
-        type: ANSWER_QUESTION,
-        authedUser,
-        qid,
-        answer
-    }
+export function answerQuestion({ qid, authedUser, answer }) {
+  console.log(authedUser)
+  return {
+    type: ANSWER_QUESTION,
+    qid,
+    authedUser,
+    answer,
+  }
 }
