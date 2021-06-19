@@ -1,4 +1,4 @@
-# Welcome to my Would you Rather game
+# Welcome to Would you Rather game
 
 This project was created by Andrew51234
 The app uses React JS & React Redux 
