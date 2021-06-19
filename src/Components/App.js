@@ -34,7 +34,7 @@ class App extends Component {
                   <Route path ='/' exact component={Dashboard}/>
                   <Route path ='/login' component={Login}/>  
                   <Route path ='/add' component={CreatePoll}/> 
-                  <Route path ='/leaderboards' component={Leaderboards}/>  
+                  <Route path ='/leaderboard' component={Leaderboards}/>  
                   <Route path ='/questions/:id' component={PollPage}/>
                   <Route path ='*' exact component ={Error}/>
                 </Switch>      
