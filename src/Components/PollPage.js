@@ -41,8 +41,8 @@ class PollPage extends Component {
 
     render() {
 
-        const { question, answer, hasAnswerOne, hasAnswerTwo } = this.props
-        if (question === null) {
+        const { question, hasAnswerOne, hasAnswerTwo } = this.props
+        if (question === null || !question) {
             return (
             <Error/>
             )
@@ -120,8 +120,8 @@ function mapStateToProps({authedUser, questions, users}, props) {
     const question = questions[id]
     const keys = Object.keys(users[authedUser].answers)
     const answer = users[authedUser].answers
-    const hasAnswerOne = questions[id].optionOne.votes.includes(authedUser)
-    const hasAnswerTwo = questions[id].optionTwo.votes.includes(authedUser) 
+    const hasAnswerOne = question ? questions[id].optionOne.votes.includes(authedUser) : null
+    const hasAnswerTwo = question ? questions[id].optionTwo.votes.includes(authedUser) : null
 
     return {
         authedUser,
