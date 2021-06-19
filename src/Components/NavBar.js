@@ -27,7 +27,7 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li className="navItem">
-          <NavLink to="/leaderboards" exact activeClassName="active">
+          <NavLink to="/leaderboard" exact activeClassName="active">
             <span>Leaderboard</span>
           </NavLink>
         </li>
