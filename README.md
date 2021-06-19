@@ -1,6 +1,7 @@
 # Welcome to my Would you Rather game
 
-This app is created using React Redux
+This project was created by Andrew51234
+The app uses React JS & React Redux 
 
 ### Prerequisites
 
